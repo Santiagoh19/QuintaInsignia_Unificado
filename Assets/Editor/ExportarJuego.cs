@@ -38,6 +38,9 @@ public static class ExportarJuego
     [MenuItem("Juego/Exportar/2. Exportar el juego para Windows", priority = 2)]
     static void MenuJuego() => CompilarJuego();
 
+    [MenuItem("Juego/Exportar/0. Descargar la cámara ya hecha (sin instalar MediaPipe)", priority = 0)]
+    static void MenuDescargar() => DescargarCamara(null);
+
     [MenuItem("Juego/Exportar/Exportar todo (cámara + juego)", priority = 20)]
     static void MenuTodo() => EmpaquetarCamara(CompilarJuego);
 
@@ -104,16 +107,53 @@ public static class ExportarJuego
         else EditorUtility.RevealInFinder(exe);
     }
 
+    // ------------------------------------------------------------------ Cámara ya hecha (GitHub)
+
+    // El programa de la cámara ya empaquetado se publica en los Releases del repositorio,
+    // así quien clone el proyecto puede exportar el juego sin instalar Python ni MediaPipe.
+    const string UrlCamara = "https://github.com/Santiagoh19/QuintaInsignia_Unificado/releases/latest/download/QuintaInsigniaCamara.zip";
+
+    static void DescargarCamara(System.Action despues)
+    {
+        if (proceso != null && !proceso.HasExited)
+        {
+            EditorUtility.DisplayDialog("Exportar", "Ya hay una descarga o preparación de la cámara en curso.", "OK");
+            return;
+        }
+        string destino = Path.Combine(CarpetaMediaPipe, "dist");
+        string zip = Path.Combine(Raiz, "Temp", "QuintaInsigniaCamara.zip");
+        string ps =
+            "$ErrorActionPreference='Stop'; [Net.ServicePointManager]::SecurityProtocol='Tls12'; " +
+            "Write-Host 'Descargando la camara de Quinta Insignia (unos 130 MB)...'; " +
+            "Invoke-WebRequest -UseBasicParsing -Uri '" + UrlCamara + "' -OutFile '" + zip + "'; " +
+            "Write-Host 'Descomprimiendo...'; " +
+            "if (Test-Path '" + Path.Combine(destino, NombreCamara) + "') { Remove-Item -Recurse -Force '" + Path.Combine(destino, NombreCamara) + "' }; " +
+            "Expand-Archive -Force -Path '" + zip + "' -DestinationPath '" + destino + "'; " +
+            "Remove-Item '" + zip + "'; Write-Host 'Listo.'";
+        Directory.CreateDirectory(Path.GetDirectoryName(zip));
+        proceso = Process.Start(new ProcessStartInfo("powershell.exe", "-NoProfile -ExecutionPolicy Bypass -Command \"" + ps + "\"")
+        {
+            UseShellExecute = true,   // se ve la ventana con el progreso
+        });
+        alTerminar = despues;
+        Debug.Log("Exportar: descargando la cámara ya hecha desde GitHub...");
+        EditorApplication.update += Vigilar;
+    }
+
     // ------------------------------------------------------------------ Juego
 
     static void CompilarJuego()
     {
         string exeCamara = Path.Combine(CarpetaCamara, NombreCamara + ".exe");
-        if (!File.Exists(exeCamara) &&
-            !EditorUtility.DisplayDialog("Exportar",
-                "Todavía no está preparada la cámara (paso 1). El juego funcionará solo con teclado.\n\n¿Exportar igual?",
-                "Exportar igual", "Cancelar"))
-            return;
+        if (!File.Exists(exeCamara))
+        {
+            int op = EditorUtility.DisplayDialogComplex("Exportar",
+                "Todavía no está la cámara en MediaPipe/dist.\n\nPuedes descargarla ya hecha desde GitHub (no hace falta Python ni MediaPipe), " +
+                "o exportar igual (el juego funcionará solo con teclado).",
+                "Descargarla y exportar", "Cancelar", "Exportar sin cámara");
+            if (op == 1) return;
+            if (op == 0) { DescargarCamara(CompilarJuego); return; }
+        }
 
         var escenas = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
         if (escenas.Length == 0) { EditorUtility.DisplayDialog("Exportar", "No hay escenas en Build Settings.", "OK"); return; }
