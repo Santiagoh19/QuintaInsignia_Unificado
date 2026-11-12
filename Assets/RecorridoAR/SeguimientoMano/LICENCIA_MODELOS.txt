@@ -1,0 +1,18 @@
+SEGUIMIENTO DE LA MANO DENTRO DE UNITY — ORIGEN Y LICENCIAS
+
+Modelos (carpeta Modelos):
+  hand_detector.onnx            Detector de palma de MediaPipe Hands (Google), 4.6 MB.
+  hand_landmarks_detector.onnx  21 puntos de la mano de MediaPipe Hands (Google), 10.9 MB.
+Datos/anclas_mano.csv           Anclas del detector (2016), del mismo ejemplo.
+Fuente: https://huggingface.co/unity/inference-engine-blaze-hand  (Unity Technologies)
+Licencia indicada en esa página: Apache 2.0. MediaPipe es software de Google bajo Apache 2.0.
+
+Código: Runtime/SeguimientoMano/ManoPipeline.cs adapta la lógica del ejemplo oficial de Unity
+"BlazeDetectionSample/Hand" (https://github.com/Unity-Technologies/sentis-samples), con licencia
+de Unity (Unity Terms of Service). Cambios: preparación de imagen en CPU, recorte 16:9 como
+send_fingers_ar.py, dos manos, seguimiento entre fotogramas y presencia/lateralidad.
+Paquete necesario: com.unity.ai.inference 2.4.0 (Unity Inference Engine).
+
+Foto de prueba (Tests/PlayMode/Datos/mano_prueba.jpg): imagen de entrada del mismo ejemplo de Unity,
+"pexels-muhammad-hassaan-488991371-20200314.jpg" (Pexels, licencia Pexels: uso libre).
+Solo se usa en las pruebas; no forma parte del juego.

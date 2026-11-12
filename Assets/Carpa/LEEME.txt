@@ -1,0 +1,5 @@
+ARMA TU CARPA DE ACAMPAR - instalar en un proyecto de Unity
+ 1. Copia esta carpeta "Carpa" dentro de Assets.
+ 2. Menú Carpa > Crear las 9 escenas.
+ 3. Abre Assets/Carpa/Escenas/Inicio y dale Play (con Python\send_mano_puno_udp.py corriendo).
+Más detalles en LEEME_Carpa.txt (carpeta MLtaller\Carpa).

@@ -1,0 +1,33 @@
+QUINTA INSIGNIA - CREDITOS DE AUDIO
+Todos los sonidos son de dominio público (CC0 1.0). No requieren atribución; se listan por transparencia.
+
+MUSICA (composición original para el juego, interpretada con muestras CC0)
+  MusicaInicio.ogg  "Noche de campamento" - vals de piano en Re mayor (Meta Piano, CC0)
+  MusicaJuego.ogg   "Aventura en el bosque" - guitarra de nylon + piano (Meta Nylon Guitar / Meta Piano, CC0)
+  MusicaFogata.ogg  "Junto al fuego" - nivel 4, Re mayor en 6/8 (guitarra y flauta; síntesis propia)
+  MusicaSombras.ogg "Sombras en la carpa" - nivel 5, Do pentatónico (colchón y kalimba; síntesis propia)
+  MusicaCarpa.ogg   "Día de campamento" - nivel 1, Sol mayor (marimba, guitarra, flauta; síntesis propia, sin muestras)
+  Generador: Herramientas/audio/componer.py  ·  MusicaCarpa: Herramientas/audio/musica_carpa.py  ·  MusicaFogata / MusicaSombras: Herramientas/audio/musica_niveles.py
+  Volumen parejo: todas las músicas normalizadas a -16 LUFS y los ambientes a -24 LUFS.
+  Muestras: Meta Open Sound - https://github.com/facebookincubator/Meta-open-sound (CC0-1.0)
+
+AMBIENTES - Meta Open Sound / Oculus Audio Pack (CC0-1.0)
+  NocheBosque.ogg  AMBForst_Night_LOOP_01
+  Lago.ogg         AMBLake_LakeShore_LOOP_01
+  AguaOrilla.ogg   WATRLap_WaterLapping_LOOP_01
+
+EFECTOS
+  Meta Open Sound / Oculus Audio Pack (CC0-1.0):
+    Paso_1-5 (ShoeGrassWalk), Correr_1-5 (ShoeDirtRun), CambioCarril_1-2 (Swoosh), Hachazo (WoodCutAxe),
+    LenaCae (LargeWoodDrop), Recoger (KnapsackNylonOpen), ArmarCana (MagicSpell), Lanzar (WhooshMedium),
+    CorazonMenos (CasualMusicalError), Boton (CasualMusicalConfirm), Aviso (CasualMusicalOpen),
+    PezAtrapado (VictoryMallet), PezEscapa (LossMallet), MisionCompleta (VictoryOrchestral_01),
+    Final (VictoryOrchestral_03), SinVidas (LossOrchestral_01), Materiales (LevelUpMallet)
+  Kenney - Impact Sounds y RPG Audio (CC0-1.0), www.kenney.nl
+    (copias: github.com/Boyquotes/kenney-impact-sounds-for-godot, github.com/Boyquotes/kenney-rpg-audio-for-godot):
+    TroncoAparece, TroncoGolpe (impact_wood_heavy + impact_punch_heavy), LenaGolpe (impact_wood_light),
+    Hachazo_2 (chop), Tela (cloth_1)
+  Wyzowl SFX Kit (CC0-1.0) - https://github.com/wyzowl/sfx-kit:
+    Chapoteo (props-splash), Gota (props-drip), Pica (notification-attention-clear), Carrete (mechanical-ratchet-light),
+    Punto (pop-medium-bubble), Destello (shimmer-medium-sparkle), Record (notification-success-sparkle),
+    Reaccion (notification-success-pluck), Aparecer (appear-poof), Alejarse (whoosh-slow-soft)

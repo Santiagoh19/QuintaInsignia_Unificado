@@ -1,0 +1,60 @@
+# ---- Unity (se regeneran solas al abrir el proyecto) ----
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Archivos que crea el editor de código (Visual Studio / Rider / VS Code)
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Restos de Unity
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+crashlytics-build.properties
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Copias de escenas que guarda Unity cuando se cierra mal
+/[Aa]ssets/_Recovery/
+/[Aa]ssets/_Recovery.meta
+
+# ---- Quinta Insignia ----
+# El programa de la cámara ya empaquetado (pesa ~280 MB; se vuelve a crear con Juego > Exportar > 1. Preparar la cámara)
+/MediaPipe/dist/
+/MediaPipe/build/
+__pycache__/
+*.pyc
+# Copias de seguridad hechas antes de cada corrección
+/Respaldo_antes_fix_camara/
+# El juego exportado (Builds/QuintaInsignia.zip) se comparte por GitHub Releases, no en el repositorio
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

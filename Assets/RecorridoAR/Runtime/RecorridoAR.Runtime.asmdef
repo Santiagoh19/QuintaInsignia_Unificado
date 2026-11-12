@@ -1,0 +1,11 @@
+{
+  "name": "RecorridoAR.Runtime",
+  "rootNamespace": "RecorridoAR",
+  "references": [
+    "Unity.ugui",
+    "Unity.InputSystem",
+    "Unity.InferenceEngine",
+    "Unity.Burst",
+    "Unity.Collections"
+  ]
+}

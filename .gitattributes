@@ -1,0 +1,28 @@
+# Finales de línea normales para texto; las escenas y assets de Unity se guardan como texto (YAML)
+* text=auto
+*.cs text diff=csharp
+*.unity text eol=lf linguist-generated
+*.prefab text eol=lf linguist-generated
+*.asset text eol=lf linguist-generated
+*.mat text eol=lf linguist-generated
+*.meta text eol=lf linguist-generated
+*.anim text eol=lf linguist-generated
+*.controller text eol=lf linguist-generated
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.tga binary
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.ttf binary
+*.otf binary
+*.fbx binary
+*.blend binary
+*.tflite binary
+*.dll binary
+*.exe binary
+*.zip binary

@@ -1,0 +1,11 @@
+{
+  "name": "RecorridoAR.Editor",
+  "rootNamespace": "RecorridoAR.Editor",
+  "references": [
+    "RecorridoAR.Runtime",
+    "Unity.InferenceEngine"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

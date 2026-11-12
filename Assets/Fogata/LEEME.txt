@@ -1,0 +1,58 @@
+PRENDAMOS LA FOGATA - juego de motricidad fina con MediaPipe
+=============================================================
+
+Narrativa: viene después de "recoger pilas para la linterna" y antes de "sombras en la fogata".
+Con la linterna se buscan ramitas, se arma la fogata, se enciende un fósforo y se prende el fuego.
+
+FASES
+ 0. Calibración: abrir la mano y luego hacer la pinza (ajusta la pinza a cada paciente).
+ 1. Ramitas: pinza (pulgar + índice) sobre una ramita, llevarla al círculo de piedras, abrir los dedos.
+ 2. Fósforo: pinza sobre el fósforo de la caja y frotarlo rápido de lado a lado sobre la lija.
+ 3. Encender: acercar la llama a las ramitas y sostener la mano quieta hasta que prenda.
+
+REQUISITOS
+ - Tu proyecto de Unity debe tener FingersMove.cs (viene en ManoMediaPipePaquete.unitypackage).
+ - El script de Python send_fingers_udp.py corriendo (puerto 9050). No hay que modificarlo.
+
+INSTALAR (una sola vez)
+ 1. En Unity: Assets > Import Package > Custom Package... > FogataMediaPipe.unitypackage > Import.
+ 2. Menú superior: Fogata > Crear escena de la fogata.
+    Se crea y abre Assets/Fogata/Fogata.unity con todo armado.
+
+JUGAR
+ 1. Abre Git Bash en la carpeta Hand y ejecuta:
+        source trackingMano/Scripts/activate
+        python trackingMano/Scripts/send_fingers_udp.py
+ 2. En Unity dale Play.
+ - Sin cámara: puedes probar con el mouse (clic sostenido = pinza).
+ - Tecla M: invierte el movimiento horizontal si el cursor va al revés.
+ - Tecla R: reinicia el juego.
+
+AJUSTES PARA EL TERAPEUTA (objeto "FogataGame" en la jerarquía, sección Ajustes)
+ - ramitasNecesarias ........ cuántas ramitas hay que llevar (1 a 7)
+ - radioAgarre .............. qué tan cerca hay que estar para agarrar (más grande = más fácil)
+ - radioFogata .............. tamaño de la zona donde se sueltan las ramitas
+ - ramitaVuelveAlInicio ..... si se suelta fuera, vuelve a su lugar original
+ - usarLinterna ............. oscuridad con círculo de luz (desactívalo para hacerlo más fácil)
+ - velocidadFrotarMinima .... qué tan rápido hay que frotar el fósforo (menor = más fácil)
+ - segundosFrotando ......... cuánto hay que frotar para que encienda
+ - duracionFosforo .......... segundos que dura el fósforo encendido (0 = no se apaga)
+ - segundosSostenerLlama .... cuánto hay que sostener la llama quieta
+ - quietudMaxima ............ cuánto movimiento se tolera "quieto" (mayor = más fácil, útil con temblor)
+ - escenaSiguiente .......... nombre de la escena de sombras para pasar automáticamente
+
+En el objeto "MediaPipe" (HandInput):
+ - mano ..................... Cualquiera / Derecha / Izquierda
+ - seguimiento .............. menor = cursor más suave (temblor)
+ - margenCamara ............. mayor = menos hay que estirar el brazo
+ - umbralCerrar/umbralAbrir . se ajustan solos con la calibración
+
+MÉTRICAS
+ Al terminar se guarda una línea JSON por sesión en:
+   %USERPROFILE%\AppData\LocalLow\<Compañía>\<Proyecto>\fogata_sesiones.jsonl
+ (tiempos por fase, ramitas que cayeron fuera, fósforos soltados, umbrales de pinza).
+
+GRÁFICOS
+ Los dibujos de Assets/Fogata/Sprites son provisionales. Para cambiarlos, reemplaza el PNG con el
+ mismo nombre o arrastra tu sprite al componente Image del objeto en la escena.
+ Los sonidos se asignan en FogataGame (agarrar, soltar, colocar, raspar, encender, fuego).

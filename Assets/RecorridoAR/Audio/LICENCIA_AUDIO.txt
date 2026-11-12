@@ -1,0 +1,36 @@
+AUDIO DE RUTA DE ENERGÍA — ORIGEN Y LICENCIA
+
+Todos los archivos de esta carpeta, salvo sfx_lobo_aullido.wav, son ORIGINALES del proyecto Quinta Insignia.
+Se compusieron y sintetizaron con Documentacion/Audio/generar_audio.js (Node.js, sin librerías):
+marimba modal, cuerda pulsada Karplus-Strong, pad, flauta, bajo y percusión suave, con
+reverberación estéreo y masterizado.
+No contienen muestras, bucles, grabaciones ni fragmentos de obras de terceros.
+
+Pueden usarse, modificarse y distribuirse libremente con el juego, sin atribución obligatoria.
+Si se desea, dedicarlos al dominio público (CC0 1.0).
+
+musica_sendero_atardecer.wav  Tema tranquilo: menús, introducción y final (76 s, re mayor, 76 ppm).
+musica_dificultad_facil.wav   Juego en Fácil (69 s, 84 ppm, percusión muy suave).
+musica_dificultad_media.wav   Juego en Media (60 s, 96 ppm, percusión ligera y contramelodía).
+musica_dificultad_dificil.wav Juego en Difícil (53 s, 108 ppm, más ritmo).
+sfx_boton_confirmar.wav       Confirmar un botón.
+sfx_bateria_recoger.wav       Recoger la batería en Inicio.
+sfx_bateria_entregar.wav      Entregar la batería en la linterna.
+sfx_etapa_completada.wav      Completar una etapa.
+sfx_fallo.wav                 Fallo o tiempo agotado.
+sfx_linterna_encender.wav     Clic y brillo de la linterna.
+sfx_nivel_completado.wav      Final de Ruta de Energía.
+
+Para sustituir un sonido: selecciona Audio_Ruta_de_Energia en Hierarchy y arrastra otro
+AudioClip a su campo en el Inspector. Usa solo audio propio o con licencia que permita
+su uso y distribución, y anota aquí su autor y licencia.
+
+SONIDO DEL LOBO (externo, dominio público)
+sfx_lobo_aullido.wav  Recorte de 2.8 s, normalizado y con fundidos, del aullido grabado en
+  Denali National Park & Preserve (Alaska). Crédito: U.S. National Park Service (NPS).
+  Fuente: https://www.nps.gov/subjects/sound/sounds-wolf.htm
+  Archivo original: https://www.nps.gov/nps-audiovideo/legacy/mp3/nri/avElement/nri-WolfDENA.mp3
+  (copia en Documentacion/Audio/fuentes/nps_lobo_denali.mp3)
+  Obra del gobierno federal de EE. UU.: dominio público. Atribución recomendada:
+  "Aullido de lobo: National Park Service (Denali)".
+El efecto sintetizado anterior (sfx_lobo_aparece) se retiró del proyecto.
